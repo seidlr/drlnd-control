@@ -4,13 +4,13 @@ to train multiple agents on Unity's **Reacher** environment.
 
 ![Reacher](reacher.png "The reacher environment")  
 
-In this environment, a multiple double-jointed arms can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of the agent is to maintain its position at the target location for as many time steps as possible.
+In this environment, multiple double-jointed arms can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of the agent is to maintain its position at the target location for as many time steps as possible.
 
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
 ## Learning Algorithm
 
-The agent is trained using a reinforcement learning technique called **Deep Deterministic Policy Gradients (DDPG)** to learn from the environment. It has been shown to be weel suited for solving challenging problems with continuous action spaces. For more information see [Continuous Control With Deep Reinforcement Learning](https://arxiv.org/pdf/1509.02971.pdf)
+The agent is trained using a reinforcement learning technique called **Deep Deterministic Policy Gradients (DDPG)** to learn from the environment. The method has been shown to be well suited for solving challenging problems with continuous action spaces. For more information see [Continuous Control With Deep Reinforcement Learning](https://arxiv.org/pdf/1509.02971.pdf).
 
 Pseudo code for the algorithm is shown in the following Figure.
 
@@ -20,7 +20,7 @@ Pseudo code for the algorithm is shown in the following Figure.
 
 The **Actor** maps a state of the environment to action values via 3 fully connected **Linear** layers with **ReLU** activation. The final output layer yields 4 values with **tanh** activation. 
 
-The **Critic** measures the quality of the actions via 3 fully connected **Linear** layers with **ReLU** activation. The single output of the last layer returns the estimated value of the current state.
+The **Critic** measures the quality of the actions via 3 fully connected **Linear** layers with **ReLU** activation. The single output of the last layer returns the estimated value of the current action.
 
 
 ### Hyperparameters
@@ -40,6 +40,6 @@ The agent was trained until an average reward of +30 was achieved.
 The plot shows the average rewards and its rolling mean. The agent is clearly able to learn how to handle the environment successfully. The environment is solved in 241 episodes.
 
 ## Ideas for Future Work
-No real effort was spent on optimizing the various hyperparameters. A grid-search can be used to investigate their influence on the solution. A more interesting area of possible improvement is to compare the results to other advanced algorithms that use multiple (non-interacting, parallel) copies of the same agent to distribute the task of gathering experience:
+No real effort was spent on optimizing the various hyperparameters. A grid-search can be used to investigate their influence on the solution. It might be interesting to compare these results to other advanced algorithms that use multiple (non-interacting, parallel) copies of the same agent to distribute the task of gathering experience like:
 - [A3C](https://arxiv.org/pdf/1602.01783.pdf)
 - [D4PG](https://openreview.net/pdf?id=SyZipzbCb)
