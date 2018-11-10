@@ -37,7 +37,7 @@ WEIGHT_DECAY = 0        # L2 weight decay
 ## Achieved Rewards
 The agent was trained until an average reward of +30 was achieved.  
 ![Scores](Score.png "Agent score over episodes")  
-The plot shows the average rewards and its rolling mean. The agent is clearly able to learn how to handle the environment successfully. The environment is solved in 241 episodes.
+The plot shows the average rewards and its rolling mean. The agent is clearly able to learn how to handle the environment successfully. The environment is solved in 208 episodes.
 
 ## Ideas for Future Work
 No real effort was spent on optimizing the various hyperparameters. A grid-search can be used to investigate their influence on the solution. It might be interesting to compare these results to other advanced algorithms that use multiple (non-interacting, parallel) copies of the same agent to distribute the task of gathering experience like:
